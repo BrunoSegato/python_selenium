@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+selenium = "==4.5.0"
+fastapi = {extras = ["all"], version = "==0.85.0"}
+pymongo = {extras = ["srv"], version = "==4.2.0"}
+python-dotenv = "==0.21.0"
+
+[dev-packages]
+ipython = "==8.5.0"
+
+[requires]
+python_version = "3.9"

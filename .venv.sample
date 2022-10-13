@@ -1,0 +1,4 @@
+USER_CORNERPRO=<username>
+PASS_CORNERPRO=<password>
+ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.lqlql.mongodb.net/?retryWrites=true&w=majority
+NOSQL_DB_NAME=<database_name>
