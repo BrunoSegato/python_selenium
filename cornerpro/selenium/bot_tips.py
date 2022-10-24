@@ -48,18 +48,21 @@ class TipPage:
                 'result': self.__get_result_game(game),
                 'link': url_link,
                 'code': url_link.split('/')[-1],
-                'events': ''
+                'events': '',
+                'stats': ''
             }
             self.__games = GamePage(self.driver)
             self.driver.get(url_link)
             events = self.page_game.get_events()
+            stats = self.page_game.get_stats()
             new_dict.update({
-                'events': events
+                'events': events,
+                'stats': stats
             })
             requests.post(url=self.base_url, json=new_dict)
             self.__tips.append(new_dict)
             self.driver.execute_script("window.history.go(-1)")
-            self.driver.implicitly_wait(3)
+            self.driver.implicitly_wait(6)
         return self.__tips
 
     def unconfirmed_games(self):
@@ -80,8 +83,7 @@ class TipPage:
             )
 
     def __get_bot_name(self):
-        name = self.driver.find_element(By.CLASS_NAME, self.bot_name).text
-        return name
+        return self.driver.find_element(By.CLASS_NAME, self.bot_name).text
 
     def __get_league_name(self, element):
         return element.find_element(By.CLASS_NAME, self.league).text

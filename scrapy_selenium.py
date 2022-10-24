@@ -7,7 +7,7 @@ config = dotenv_values(".env")
 
 def main():
     ff = webdriver.Firefox()
-    g = CornerPro(ff)
+    g = CornerPro(ff, 'https://cornerprobet.com/pt')
     games = []
 
     g.navigate()

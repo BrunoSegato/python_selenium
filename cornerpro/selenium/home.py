@@ -4,9 +4,9 @@ from cornerpro.selenium.bot import PageBot
 
 
 class CornerPro:
-    def __init__(self, driver):
+    def __init__(self, driver, url):
         self.__driver = driver
-        self.__url = 'https://cornerprobet.com/pt'
+        self.__url = url
         self.__login = None
         self.__bot = None
 

@@ -1,5 +1,5 @@
 import uuid
-from typing import Optional, Any
+from typing import Optional
 from pydantic import BaseModel, Field
 
 
@@ -13,6 +13,7 @@ class Game(BaseModel):
     code: str = Field(description="Código do jogo no CornerPro")
     link: str = Field(description="Link do jogo")
     events: list[dict] = Field(description="Eventos do jogo")
+    stats: dict = Field(description="Estatisticas do Jogo")
 
     class Config:
         allow_population_by_field_name = True
@@ -35,6 +36,16 @@ class Game(BaseModel):
                         'time': '10',
                         'event': 'Canto'
                     }
+                ],
+                "stats": [
+                    {
+                        "FT": {
+                            "ataques": {
+                                "home": "89",
+                                "away": "40"
+                            }
+                        }
+                    }
                 ]
             }
         }
@@ -49,6 +60,7 @@ class GameUpdate(BaseModel):
     result: Optional[str]
     link: Optional[str]
     events: Optional[list[dict]]
+    stats: Optional[dict]
 
     class Config:
         schema_extra = {
@@ -68,6 +80,16 @@ class GameUpdate(BaseModel):
                     {
                         'time': '10',
                         'event': 'Canto'
+                    }
+                ],
+                "stats": [
+                    {
+                        "FT": {
+                            "ataques": {
+                                "home": "89",
+                                "away": "40"
+                            }
+                        }
                     }
                 ]
             }
